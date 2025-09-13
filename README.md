@@ -2,14 +2,6 @@
 
 Este projeto implementa um jogo da velha utilizando o algoritmo Minimax.
 
-## 🎯 Características
-
-- **IA Imbatível**: Algoritmo Minimax garantindo que a IA nunca perde
-- **Interface Colorida**: Formatação visual com cores no terminal
-- **Arquitetura Modular**: Código organizado em bibliotecas personalizadas
-- **Multiplataforma**: Compatível com Windows, Linux e macOS
-- **Build Automatizado**: Makefile completo com múltiplas opções
-
 ## 🚀 Como Compilar e Executar
 
 ### Pré-requisitos
@@ -72,11 +64,17 @@ Consulte `doc/documentacao.md` para documentação técnica detalhada incluindo:
 ## 👨‍💻 Desenvolvimento
 
 Este projeto foi desenvolvido como parte do curso de Engenharia de Software na UTFPR, demonstrando:
-- Implementação de algoritmos de IA
 - Arquitetura modular em C++
 - Ferramentas de build automatizado
 - Documentação técnica completa
 
+ ## 🎯 Características
+
+- **Interface Colorida**: Formatação visual com cores no terminal
+- **Arquitetura Modular**: Código organizado em bibliotecas personalizadas
+- **Multiplataforma**: Compatível com Windows, Linux e macOS
+- **Build Automatizado**: Makefile completo com múltiplas opções
+
 ---
 
-**UTFPR - 5º Período | 2025**
+**UTFPR | 2025**
