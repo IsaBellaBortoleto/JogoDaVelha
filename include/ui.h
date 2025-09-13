@@ -1,5 +1,4 @@
-#ifndef UI_H
-#define UI_H
+#pragma once
 
 #include <string>
 
@@ -87,4 +86,3 @@ void waitForEnter();
  */
 bool askPlayAgain();
 
-#endif // UI_H

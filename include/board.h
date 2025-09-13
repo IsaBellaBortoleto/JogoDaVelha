@@ -1,7 +1,7 @@
-#ifndef BOARD_H
-#define BOARD_H
+#pragma once
 
 #include <string>
+using namespace std;
 
 /**
  * @brief Biblioteca para gerenciamento do tabuleiro do jogo da velha
@@ -37,7 +37,7 @@ bool equals3(char a, char b, char c);
  * @brief Verifica o estado atual do jogo
  * @return String indicando o vencedor ('X', 'O'), 'tie' para empate ou 'none' se o jogo continua
  */
-std::string checkWinner();
+string checkWinner();
 
 /**
  * @brief Conta quantas posições estão vazias no tabuleiro
@@ -77,4 +77,3 @@ bool makeMove(int row, int col, char player);
  */
 void undoMove(int row, int col);
 
-#endif // BOARD_H

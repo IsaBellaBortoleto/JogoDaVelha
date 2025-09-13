@@ -1,6 +1,4 @@
-#ifndef MINIMAX_H
-#define MINIMAX_H
-
+#pragma once
 /**
  * @brief Biblioteca do algoritmo Minimax para o jogo da velha
  * 
@@ -73,4 +71,3 @@ void makeBotMove();
  */
 int evaluateBoard();
 
-#endif // MINIMAX_H
