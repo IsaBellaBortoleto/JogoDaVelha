@@ -298,4 +298,4 @@ Este projeto demonstra a implementação completa de um jogo da velha com IA uti
 ---
 
 **© 2025 UTFPR - Universidade Tecnológica Federal do Paraná**  
-**Projeto Crossbots - 5º Período**
+**Projeto Crossbots **
