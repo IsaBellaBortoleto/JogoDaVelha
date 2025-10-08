@@ -1,6 +1,6 @@
-# JOGO DA VELHA COM IA - DOCUMENTAÇÃO TÉCNICA
+# JOGO DA VELHA  - DOCUMENTAÇÃO TÉCNICA
 
-**Projeto:** Crossbots - Jogo da Velha com Inteligência Artificial  
+**Projeto:** Crossbots - Jogo da Velha 
 **Autor:** UTFPR - 5º Período  
 **Data:** Setembro 2025  
 **Linguagem:** C++11  
@@ -22,49 +22,21 @@
 
 ## VISÃO GERAL
 
-Este projeto implementa um jogo da velha (tic-tac-toe) com uma inteligência artificial imbatível utilizando o algoritmo Minimax. O sistema foi desenvolvido em C++ com uma arquitetura modular, separando responsabilidades em bibliotecas personalizadas.
 
 ### Características Principais
 
-- **IA Imbatível**: Implementação do algoritmo Minimax garantindo que a IA nunca perca
-- **Interface Colorida**: Utilização de códigos ANSI para formatação visual no terminal
-- **Arquitetura Modular**: Separação de responsabilidades em bibliotecas distintas
-- **Multiplataforma**: Compatível com Windows e sistemas Unix-like
-- **Compilação Automatizada**: Makefile completo com múltiplas opções de build
 
 ### Objetivos do Projeto
 
-1. Demonstrar implementação de algoritmos de IA em jogos
-2. Aplicar princípios de engenharia de software com código modular
-3. Utilizar ferramentas de build automatizado (Makefile)
-4. Criar documentação técnica completa
 
 ---
 
 ## ARQUITETURA DO SISTEMA
 
-O sistema segue uma arquitetura em camadas, separando claramente as responsabilidades:
 
-```
-┌─────────────────────┐
-│     main.cpp        │  ← Controlador principal
-├─────────────────────┤
-│       ui.h/cpp      │  ← Interface do usuário
-├─────────────────────┤
-│   minimax.h/cpp     │  ← Inteligência artificial
-├─────────────────────┤
-│    board.h/cpp      │  ← Lógica do tabuleiro
-└─────────────────────┘
-```
 
 ### Princípios Utilizados
 
-- **Separação de Responsabilidades**: Cada módulo tem uma função específica
-- **Baixo Acoplamento**: Módulos independentes com interfaces bem definidas
-- **Alta Coesão**: Funcionalidades relacionadas agrupadas logicamente
-- **Reutilização**: Código modular permite fácil manutenção e extensão
-
----
 
 ## BIBLIOTECAS PERSONALIZADAS
 
@@ -73,62 +45,23 @@ O sistema segue uma arquitetura em camadas, separando claramente as responsabili
 **Responsabilidade**: Gerenciamento do estado do tabuleiro
 
 **Principais Funções**:
-- `initBoard()`: Inicializa tabuleiro vazio
-- `checkWinner()`: Verifica condições de vitória
-- `makeMove(row, col, player)`: Executa jogada
-- `isValidPosition(row, col)`: Valida coordenadas
-- `isPositionEmpty(row, col)`: Verifica posição vazia
+
 
 **Estruturas de Dados**:
-```cpp
-char board[3][3];           // Matriz 3x3 representando o tabuleiro
-const char BOT = 'X';       // Símbolo do BOT
-const char PLAYER = 'O';    // Símbolo do jogador humano
-```
+
 
 ### 2. Biblioteca Minimax (minimax.h/minimax.cpp)
 
-**Responsabilidade**: Implementação da inteligência artificial
 
-**Principais Funções**:
-- `minimax(isMaximizing, depth)`: Algoritmo recursivo principal
-- `getBestMove()`: Encontra a melhor jogada possível
-- `makeBotMove()`: Executa jogada do BOT
-- `evaluateBoard()`: Avalia estado atual do jogo
 
-**Estrutura Move**:
-```cpp
-struct Move {
-    int row;      // Linha da jogada
-    int col;      // Coluna da jogada  
-    int score;    // Pontuação avaliada
-};
-```
 
-### 3. Biblioteca UI (ui.h/ui.cpp)
 
-**Responsabilidade**: Interface com o usuário
 
-**Principais Funções**:
-- `printBoard()`: Exibe tabuleiro formatado
-- `getPlayerMove()`: Captura jogada do usuário
-- `displayGameResult(winner)`: Mostra resultado final
-- `displayWelcomeMessage()`: Mensagem de boas-vindas
-
-**Formatação Visual**:
-```cpp
-#define RED     "\033[31m"      // Cor vermelha (BOT)
-#define ORANGE  "\033[38;5;208m" // Cor laranja (Player)
-#define BOLD    "\033[1m"       // Texto em negrito
-```
-
----
 
 ## ALGORITMO MINIMAX
 
 ### Fundamentos Teóricos
 
-O algoritmo Minimax é uma técnica de IA para jogos de soma zero com informação perfeita. Ele explora todas as possibilidades futuras do jogo para escolher a jogada ótima.
 
 ### Funcionamento
 
@@ -147,33 +80,7 @@ O algoritmo Minimax é uma técnica de IA para jogos de soma zero com informaç�
 
 ### Otimização por Profundidade
 
-```cpp
-if (result == BOT) return 10 - depth;     // Prefere vitórias rápidas
-if (result == PLAYER) return depth - 10;  // Adia derrotas
-```
 
-### Pseudocódigo
-
-```
-função minimax(nó, profundidade, maximizando):
-    se nó é folha:
-        retorna valor_heurístico(nó)
-    
-    se maximizando:
-        melhor_valor = -∞
-        para cada filho de nó:
-            valor = minimax(filho, profundidade+1, falso)
-            melhor_valor = max(melhor_valor, valor)
-        retorna melhor_valor
-    senão:
-        melhor_valor = +∞
-        para cada filho de nó:
-            valor = minimax(filho, profundidade+1, verdadeiro)
-            melhor_valor = min(melhor_valor, valor)
-        retorna melhor_valor
-```
-
----
 
 ## COMPILAÇÃO E EXECUÇÃO
 
@@ -351,16 +258,11 @@ BOT marcou (1,1):
 
 ### Otimizações Implementadas
 
-1. **Avaliação por Profundidade**: Prefere vitórias rápidas e adia derrotas
-2. **Poda Implícita**: Termina busca quando encontra estado terminal
-3. **Validação Prévia**: Evita cálculos desnecessários
+
 
 ### Possíveis Melhorias
 
-1. **Alpha-Beta Pruning**: Reduziria significativamente o espaço de busca
-2. **Tabela de Transposição**: Cachear estados já avaliados
-3. **Iterative Deepening**: Para jogos com limite de tempo
-4. **Heurísticas Avançadas**: Para jogos mais complexos
+
 
 ### Portabilidade
 
@@ -373,20 +275,7 @@ BOT marcou (1,1):
 - Padrão C++11 ou superior
 - Biblioteca padrão C++ (iostream, string, limits, algorithm)
 
-### Tratamento de Erros
 
-1. **Entrada Inválida**: Limpa buffer e solicita nova entrada
-2. **Posições Inválidas**: Valida coordenadas antes de usar
-3. **Estados Inconsistentes**: Verificações de integridade do tabuleiro
-
-### Padrões de Código
-
-- **Nomenclatura**: camelCase para funções, UPPER_CASE para constantes
-- **Documentação**: Comentários Doxygen em todas as funções públicas
-- **Modularidade**: Headers com guards e implementações separadas
-- **Const-correctness**: Uso apropriado de const em parâmetros
-
----
 
 ## CONCLUSÃO
 
