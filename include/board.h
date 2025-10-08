@@ -4,76 +4,44 @@
 using namespace std;
 
 /**
- * @brief Biblioteca para gerenciamento do tabuleiro do jogo da velha
+ * Classe Board para gerenciamento orientado a objetos do tabuleiro
  * 
- * Esta biblioteca contém todas as funcionalidades relacionadas ao tabuleiro
- * do jogo da velha, incluindo inicialização, verificação de vitória e 
- * manipulação das posições.
+ * Esta classe encapsula o tabuleiro e suas operações, seguindo princípios
+ * de orientação a objetos com dados privados e métodos públicos.
  */
+class Board {
+private:
+    static const int BOARD_SIZE = 3;
+    char board[BOARD_SIZE][BOARD_SIZE];
+    
+    static const char BOT = 'X';
+    static const char PLAYER = 'O';
+    static const char EMPTY = ' ';
+ 
+    bool equals3(char a, char b, char c) const;
 
-// Constantes do jogo
-extern const char BOT;
-extern const char PLAYER;
-extern const int BOARD_SIZE;
-
-// Tabuleiro global
-extern char board[3][3];
-
-/**
- * @brief Inicializa o tabuleiro com espaços vazios
- */
-void initBoard();
-
-/**
- * @brief Verifica se três posições são iguais e não vazias
- * @param a Primeira posição
- * @param b Segunda posição  
- * @param c Terceira posição
- * @return true se as três posições são iguais e não vazias
- */
-bool equals3(char a, char b, char c);
-
-/**
- * @brief Verifica o estado atual do jogo
- * @return String indicando o vencedor ('X', 'O'), 'tie' para empate ou 'none' se o jogo continua
- */
-string checkWinner();
-
-/**
- * @brief Conta quantas posições estão vazias no tabuleiro
- * @return Número de posições vazias
- */
-int countEmptySpots();
-
-/**
- * @brief Verifica se uma posição específica está vazia
- * @param row Linha (0-2)
- * @param col Coluna (0-2)
- * @return true se a posição está vazia
- */
-bool isPositionEmpty(int row, int col);
-
-/**
- * @brief Verifica se as coordenadas estão dentro dos limites do tabuleiro
- * @param row Linha (0-2)
- * @param col Coluna (0-2)
- * @return true se as coordenadas são válidas
- */
-bool isValidPosition(int row, int col);
-
-/**
- * @brief Faz uma jogada no tabuleiro
- * @param row Linha (0-2)
- * @param col Coluna (0-2)
- * @param player Jogador ('X' ou 'O')
- * @return true se a jogada foi bem-sucedida
- */
-bool makeMove(int row, int col, char player);
-
-/**
- * @brief Desfaz uma jogada no tabuleiro
- * @param row Linha (0-2)
- * @param col Coluna (0-2)
- */
-void undoMove(int row, int col);
+public:
+    // Construtor e Destrutor
+    Board();
+    ~Board();
+    
+    // Métodos públicos (interface da classe)
+    void initBoard();
+    string checkWinner() const;
+    int countEmptySpots() const;
+    bool isPositionEmpty(int row, int col) const;
+    bool isValidPosition(int row, int col) const;
+    bool makeMove(int row, int col, char player);
+    void undoMove(int row, int col);
+    
+    // Métodos para acesso controlado aos dados
+    char getPosition(int row, int col) const;
+    void printBoard() const;
+    
+    // Getters para constantes
+    static char getBotSymbol() { return BOT; }
+    static char getPlayerSymbol() { return PLAYER; }
+    static char getEmptySymbol() { return EMPTY; }
+    static int getBoardSize() { return BOARD_SIZE; }
+};
 

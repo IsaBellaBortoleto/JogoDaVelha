@@ -1,0 +1,98 @@
+@startuml
+' --- Configurações Visuais ---
+title Diagrama de Classes Completo - Jogo da Velha
+skinparam classAttributeIconSize 0
+left to right direction
+
+' --- Ponto de Entrada da Aplicação ---
+component main <<Executable>>
+
+' --- Definição das Classes com Atributos e Métodos Completos ---
+abstract class Entity {
+  # x: int
+  # y: int
+  # score: int
+  # nome: string
+  # simbolo: char
+  --
+  + Entity(nome: string, simbolo: char)
+  + Entity(nome: string, simbolo: char, x: int, y: int)
+  + ~Entity()
+  --
+  + getX(): int
+  + getY(): int
+  + getScore(): int
+  + getSimbolo(): char
+  + getNome(): string
+  {abstract} + fazerJogada(board: Board&): bool
+}
+
+class Player {
+  + Player(nome: string, simbolo: char)
+  + ~Player()
+  --
+  + fazerJogada(board: Board&): bool
+}
+
+class Bot {
+  + Bot(nome: string, simbolo: char)
+  + ~Bot()
+  --
+  + fazerJogada(board: Board&): bool
+  - evaluateBoard(board: Board&): int
+  - minimax(board: Board&, depth: int, isMaximizing: bool): int
+}
+
+class Board {
+  - board: char[3][3]
+  {static} - BOT: char
+  {static} - PLAYER: char
+  {static} - EMPTY: char
+  {static} - BOARD_SIZE: int
+  --
+  + Board()
+  + ~Board()
+  --
+  + checkWinner(): string
+  + makeMove(row: int, col: int, player: char): bool
+  + printBoard(): void
+}
+
+class Game {
+  - board: Board
+  - players: vector<Entity*>
+  - currentEntityIndex: int
+  - gameActive: bool
+  --
+  + Game()
+  + ~Game()
+  --
+  + addEntity(player: Entity*): void
+  + playGame(): void
+}
+
+class Ui <<Utility>> {
+  ' Módulo de funções, sem construtores ou atributos
+}
+
+' --- Relacionamentos e Dependências ---
+' Herança
+Entity <|-- Player
+Entity <|-- Bot
+
+' Composição
+Game "1" *-- "1" Board
+
+' Agregação
+Game o-- "*" Entity
+
+' Dependências
+main ..> Game : cria e inicia
+main ..> Player : cria
+main ..-|> Bot : cria
+Player ..> Board : "faz jogada em"
+Bot ..> Board : "faz jogada em"
+Game ..> Ui : "exibe informações"
+Player ..> Ui : "obtém jogada"
+
+@enduml

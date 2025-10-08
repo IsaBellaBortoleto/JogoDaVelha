@@ -1,0 +1,125 @@
+```mermaid
+classDiagram
+    direction TB
+
+    class Entity {
+      <<abstract>>
+      - x : int
+      - y : int
+      - score : int
+      - nome : string
+      - simbolo : char
+      + Entity(nome: string, simbolo: char)
+      + Entity(nome: string, simbolo: char, x: int, y: int)
+      + getX() int
+      + getY() int
+      + setPosition(x: int, y: int) void
+      + getScore() int
+      + setScore(score: int) void
+      + getSimbolo() char
+      + getNome() string
+      + fazerJogada(board: Board&) bool*
+    }
+
+    class Player {
+      + Player(nome: string, simbolo: char)
+      + ~Player()
+      + fazerJogada(board: Board&) bool
+    }
+
+    class Bot {
+      - evaluateBoard(board: Board&) int
+      - minimax(board: Board&, depth: int, isMaximizing: bool) int
+      + Bot(nome: string, simbolo: char)
+      + ~Bot()
+      + fazerJogada(board: Board&) bool
+    }
+
+    class Board {
+      - BOARD_SIZE : int "= 3" <<static>>
+      - board : char[3][3]
+      - BOT : char "= 'X'" <<static>>
+      - PLAYER : char "= 'O'" <<static>>
+      - EMPTY : char "= ' '" <<static>>
+      - equals3(a: char, b: char, c: char) bool
+      + Board()
+      + ~Board()
+      + initBoard() void
+      + checkWinner() string
+      + countEmptySpots() int
+      + isPositionEmpty(row: int, col: int) bool
+      + isValidPosition(row: int, col: int) bool
+      + makeMove(row: int, col: int, player: char) bool
+      + undoMove(row: int, col: int) void
+      + getPosition(row: int, col: int) char
+      + printBoard() void
+      + getBotSymbol() char <<static>>
+      + getPlayerSymbol() char <<static>>
+      + getEmptySymbol() char <<static>>
+      + getBoardSize() int <<static>>
+    }
+
+    class Game {
+      - board : Board
+      - players : vector~Entity*~
+      - currentEntityIndex : int
+      - gameActive : bool
+      + Game()
+      + ~Game()
+      + addEntity(player: Entity*) void
+      + startNewGame() void
+      + playGame() void
+      + processCurrentEntityTurn() bool
+      + isGameOver() bool
+      + showGameResult() void
+      + switchToNextEntity() void
+      + getCurrentEntity() Entity*
+      + getBoard() Board&
+    }
+
+    class Ui <<utility>> {
+      + printBoard() void
+      + displayWelcomeMessage() void
+      + getPlayerMove() bool
+      + displayBotMove(row: int, col: int) void
+      + displayPlayerMove(row: int, col: int) void
+      + displayGameResult(winner: string) void
+      + displayInvalidMoveError() void
+      + clearScreen() void
+      + waitForEnter() void
+      + askPlayAgain() bool
+    }
+
+    class Minimax <<utility>> {
+      + struct Move {
+          + row : int
+          + col : int
+          + score : int
+        }
+      + minimax(isMaximizing: bool, depth: int) int
+      + getBestMove() Move
+      + makeBotMove() void
+      + evaluateBoard() int
+    }
+
+    %% Inheritance
+    Entity <|-- Player
+    Entity <|-- Bot
+
+    %% Composition and Aggregation
+    Game *-- Board : composition
+    Game o-- Entity : aggregation "2..*"
+
+    %% Dependencies / usages
+    Player ..> Board : uses
+    Bot ..> Board : uses
+    Bot ..> Minimax : uses
+    Player ..> Ui : uses
+    Game ..> Ui : uses
+
+    %% Notes
+    note for Entity "Classe base abstrata\nDefine contrato de jogada"
+    note for Game "Fachada para fluxo do jogo\nGerencia entidades e tabuleiro"
+    note for Bot "IA com algoritmo Minimax"
+    note for Board "Encapsula estado e regras"
+```

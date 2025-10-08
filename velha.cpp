@@ -9,7 +9,7 @@ using namespace std;
 // Códigos de cores ANSI
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
-#define YELLOW  "\033[33m"
+#define ORANGE  "\033[33m"
 #define BLUE    "\033[34m"
 #define MAGENTA "\033[35m"
 #define WHITE   "\033[37m"
@@ -191,8 +191,8 @@ void playerMove() {
 
 // Função principal que contém o loop do jogo
 int main() {
-    cout << BOLD << YELLOW << "Bem vindo ao Jogo da Velha!" << RESET << endl;
-    cout << YELLOW << "Voce eh " << BLUE << "'O'" << YELLOW << ". As casas sao numeradas de 1 a 3 para linhas e colunas.\n" << RESET;
+    cout << BOLD << ORANGE << "Bem vindo ao Jogo da Velha!" << RESET << endl;
+    cout << ORANGE << "Voce eh " << BLUE << "'O'" << ORANGE << ". As casas sao numeradas de 1 a 3 para linhas e colunas.\n" << RESET;
 
     char currentPlayer = PLAYER;
 
@@ -201,7 +201,7 @@ int main() {
         if (winner != "none") {
             printBoard();
             if (winner == "tie") {
-                cout << BOLD << YELLOW << "O jogo empatou!" << RESET << endl;
+                cout << BOLD << ORANGE << "O jogo empatou!" << RESET << endl;
             } else {
                 if (winner == "X") {
                     cout << BOLD << RED << "O BOT venceu!" << RESET << endl;
