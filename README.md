@@ -47,12 +47,6 @@ crossbots/
 3. O BOT (X) jogará automaticamente
 4. Continue até haver um vencedor ou empate
 
-## 📚 Bibliotecas Personalizadas
-
-- **board.h/cpp**: Gerenciamento do tabuleiro
-- **minimax.h/cpp**: Inteligência artificial
-- **ui.h/cpp**: Interface do usuário
-
 ## 📖 Documentação Completa
 
 Consulte `doc/documentacao.md` para documentação técnica detalhada incluindo:

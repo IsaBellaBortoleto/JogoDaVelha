@@ -20,7 +20,6 @@ Bot::~Bot() {
 }
 
 
-
 /**
  * Avalia o estado atual do tabuleiro
  */

@@ -3,24 +3,17 @@
 #include "Board.h"
 #include <iostream>
 
-/**
- * @brief Construtor da classe Player
- * @param nome Nome do jogador
- * @param simbolo Símbolo do jogador ('X' ou 'O')
- */
+
 Player::Player(string nome, char simbolo) : Entity(nome, simbolo) {
 }
 
-/**
- * @brief Destrutor da classe Player
- */
 Player::~Player() {
 }
 
 
 
 /**
- * @brief Faz uma jogada no tabuleiro especificado
+ * Faz uma jogada no tabuleiro especificado
  * @param board Referência para o tabuleiro onde fazer a jogada
  * @return true se a jogada foi bem-sucedida
  */
