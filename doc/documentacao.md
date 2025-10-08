@@ -1,7 +1,7 @@
 # JOGO DA VELHA  - DOCUMENTAÇÃO TÉCNICA
 
 **Projeto:** Crossbots - Jogo da Velha 
-**Autor:** UTFPR - 5º Período  
+**Autor:** UTFPR
 **Data:** Setembro 2025  
 **Linguagem:** C++11  
 
