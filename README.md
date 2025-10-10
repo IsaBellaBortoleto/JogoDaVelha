@@ -57,7 +57,7 @@ Consulte `doc/documentacao.md` para documentação técnica detalhada incluindo:
 
 ## 👨‍💻 Desenvolvimento
 
-Este projeto foi desenvolvido como parte do curso de Engenharia de Software na UTFPR, demonstrando:
+Este projeto foi desenvolvido como parte do processo seletivo da Crossbots, demonstrando:
 - Arquitetura modular em C++
 - Ferramentas de build automatizado
 - Documentação técnica completa
