@@ -1,7 +1,6 @@
 # JOGO DA VELHA - DOCUMENTAÇÃO TÉCNICA
 
 **Projeto:** Crossbots - Jogo da Velha
-**Autor:** UTFPR
 **Data:** Outubro 2025
 **Linguagem:** C++11
 
@@ -14,11 +13,10 @@
 3.  [Bibliotecas Personalizadas](#bibliotecas-personalizadas)
 4.  [Algoritmo Minimax](#algoritmo-minimax)
 5.  [Compilação e Execução](#compilação-e-execução)
-6.  [Estrutura de Arquivos](#estrutura-de-arquivos)
-7.  [Manual de Uso](#manual-de-uso)
-8.  [Considerações Técnicas](#considerações-técnicas)
-9.  [Conclusão](#conclusão)
-10. [Referências](#referências)
+6.  [Manual de Uso](#manual-de-uso)
+7.  [Considerações Técnicas](#considerações-técnicas)
+8.  [Conclusão](#conclusão)
+9. [Referências](#referências)
 
 ---
 
@@ -58,7 +56,7 @@ O projeto segue o paradigma da **Programação Orientada a Objetos (OOP)**. As p
 
 O diagrama de classes abaixo ilustra a relação entre as principais entidades do sistema. Foi modelado utilizando a ferramenta Mermaid.
 
-![Diagrama de Classes](imagens/diagrama_de_classes.png)
+<img src="https://github.com/IsaBellaBortoleto/JogoDaVelha/blob/main/Diagramas/diagrama%20de%20classes.png">
 *Figura 1: Diagrama de classes do sistema.*
 
 ---
@@ -103,8 +101,8 @@ O algoritmo funciona explorando recursivamente todas as jogadas possíveis até 
 2.  **Maximização (Turno do Bot)**: O bot (jogador MAX) escolhe a jogada que leva ao estado com a maior pontuação.
 3.  **Minimização (Turno do Humano)**: O bot assume que o jogador (jogador MIN) escolherá a jogada que leva ao estado com a menor pontuação.
 4.  **Backtracking**: As pontuações dos estados finais (folhas da árvore) são propagadas de volta para cima, permitindo que a decisão seja tomada na raiz da busca.
+<img src="https://github.com/IsaBellaBortoleto/JogoDaVelha/blob/main/imagens/4.png">
 
-![Funcionamento do Minimax](imagens/4.png)
 *Figura 2: Demonstração do fluxo do algoritmo Minimax. Fonte: [1]*
 
 ### Pontuação
@@ -182,31 +180,7 @@ CXXFLAGS = -Wall -Wextra -std=c++11 -O2
 
 ---
 
-## ESTRUTURA DE ARQUIVOS
 
-```
-crossbots/
-├── src/                  # Código fonte
-│   ├── main.cpp          # Arquivo principal
-│   ├── board.cpp         # Implementação do tabuleiro
-│   ├── minimax.cpp       # Implementação da IA
-│   └── ui.cpp            # Implementação da interface
-├── include/              # Cabeçalhos
-│   ├── board.h           # Interface do tabuleiro
-│   ├── minimax.h         # Interface da IA
-│   └── ui.h              # Interface do usuário
-├── bin/                  # Executáveis (gerado)
-│   └── jogo_da_velha.exe
-├── obj/                  # Arquivos objeto (gerado)
-│   ├── main.o
-│   ├── board.o
-│   ├── minimax.o
-│   └── ui.o
-├── doc/                  # Documentação
-│   └── documentacao.md
-├── Makefile              # Arquivo de build
-└── README.md             # Instruções básicas
-```
 
 ### Descrição dos Diretórios
 
@@ -239,21 +213,18 @@ crossbots/
 ### Interface do Jogo
 
 1.  **Tela de Boas-vindas**: Apresenta o jogo e suas regras.
-2.  **Tabuleiro**: Exibido com cores para diferenciar os jogadores:
-    * 🔴 **X**: BOT (vermelho)
-    * 🟠 **O**: Jogador (laranja)
+2.  **Tabuleiro**: Exibido com cores para diferenciar os jogadores.
 3.  **Entrada**: O jogador deve digitar a linha (1-3) e a coluna (1-3) para fazer sua jogada.
 4.  **Resultado**: Ao final da partida, o programa exibe uma mensagem indicando o vencedor ou se houve empate.
 
 ### Exemplo de Partida
-
-![Início de uma partida](imagens/1.png)
+<img src="https://github.com/IsaBellaBortoleto/JogoDaVelha/blob/main/imagens/1.png">
 *Figura 3: Tela inicial do jogo.*
 
-![Jogo em andamento](imagens/2.png)
+<img src="https://github.com/IsaBellaBortoleto/JogoDaVelha/blob/main/imagens/2.png">
 *Figura 4: Partida em andamento após algumas jogadas.*
 
-![Fim de jogo](imagens/3.png)
+<img src="https://github.com/IsaBellaBortoleto/JogoDaVelha/blob/main/imagens/3.png">
 *Figura 5: Tela de finalização com a vitória do bot.*
 
 ### Validações
