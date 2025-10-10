@@ -49,11 +49,11 @@ crossbots/
 
 ## 📖 Documentação Completa
 
-Consulte `doc/documentacao.md` para documentação técnica detalhada incluindo:
-- Arquitetura do sistema
+Consulte `doc/JogodaVelha.pdf` para documentação técnica detalhada incluindo:
+- Objetivo
 - Explicação do algoritmo Minimax
 - Manual de compilação
-- Guia do desenvolvedor
+- Diagrama de classes
 
 ## 👨‍💻 Desenvolvimento
 
