@@ -149,7 +149,6 @@ make help
 
 * **src/**: Contém todos os arquivos de implementação (`.cpp`).
 * **include/**: Contém todos os arquivos de cabeçalho (`.h`).
-* **bin/**: Diretório de saída para os executáveis compilados.
 * **obj/**: Diretório para arquivos objeto intermediários gerados durante a compilação.
 * **doc/**: Armazena a documentação do projeto.
 
