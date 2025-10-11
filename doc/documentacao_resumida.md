@@ -1,6 +1,7 @@
 # JOGO DA VELHA - DOCUMENTAÇÃO TÉCNICA
 
 **Projeto:** Crossbots - Jogo da Velha
+**Autor:** 026
 **Data:** Outubro 2025
 **Linguagem:** C++11
 
