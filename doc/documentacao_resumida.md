@@ -1,6 +1,7 @@
 # JOGO DA VELHA - DOCUMENTAÇÃO TÉCNICA
 
 **Projeto:** Crossbots - Jogo da Velha
+**Autor:** 026
 **Data:** Outubro 2025
 **Linguagem:** C++11
 
@@ -10,13 +11,11 @@
 
 1.  [Visão Geral](#visão-geral)
 2.  [Arquitetura do Sistema](#arquitetura-do-sistema)
-3.  [Bibliotecas Personalizadas](#bibliotecas-personalizadas)
-4.  [Algoritmo Minimax](#algoritmo-minimax)
-5.  [Compilação e Execução](#compilação-e-execução)
-6.  [Manual de Uso](#manual-de-uso)
-7.  [Considerações Técnicas](#considerações-técnicas)
-8.  [Conclusão](#conclusão)
-9. [Referências](#referências)
+3.  [Algoritmo Minimax](#algoritmo-minimax)
+4.  [Compilação e Execução](#compilação-e-execução)
+5.  [Manual de Uso](#manual-de-uso)
+6.  [Considerações Técnicas](#considerações-técnicas)
+7. [Referências](#referências)
 
 ---
 
@@ -58,32 +57,6 @@ O diagrama de classes abaixo ilustra a relação entre as principais entidades d
 
 <img src="https://github.com/IsaBellaBortoleto/JogoDaVelha/blob/main/Diagramas/diagrama%20de%20classes.png">
 *Figura 1: Diagrama de classes do sistema.*
-
----
-
-## BIBLIOTECAS PERSONALIZADAS
-
-O projeto é dividido em módulos para organizar o código de forma eficiente.
-
-### 1. Biblioteca Board (`board.h`/`board.cpp`)
-
-* **Responsabilidade**: Gerenciamento completo do estado do tabuleiro. Encapsula todas as operações relacionadas ao tabuleiro de jogo.
-* **Principais Funções**:
-    * `displayBoard()`: Exibe o estado atual do tabuleiro no console.
-    * `isMoveLeft()`: Verifica se ainda existem jogadas possíveis.
-    * `makeMove(row, col, player)`: Realiza uma jogada para um determinado jogador.
-    * `checkWin()`: Avalia se há um vencedor.
-    * `resetBoard()`: Limpa o tabuleiro para uma nova partida.
-* **Estruturas de Dados**:
-    * Utiliza uma matriz 2D (`char board[3][3]`) para representar o tabuleiro.
-
-### 2. Biblioteca Minimax (`minimax.h`/`minimax.cpp`)
-
-* **Responsabilidade**: Implementação da inteligência artificial do bot. Contém toda a lógica do algoritmo Minimax.
-* **Principais Funções**:
-    * `findBestMove(board)`: Função pública que recebe o estado atual do tabuleiro e retorna a melhor jogada possível para o bot.
-    * `minimax(board, depth, isMax)`: Função recursiva privada que explora a árvore de jogadas para encontrar a pontuação de cada movimento.
-    * `evaluateBoard(board)`: Atribui uma pontuação a um estado final do tabuleiro (vitória, derrota ou empate).
 
 ---
 
@@ -168,16 +141,6 @@ make help
 3.  **Linkagem**: Todos os arquivos objeto são linkados para gerar o executável final em `bin/`.
 4.  **Otimização**: Flags de compilação são aplicadas conforme o alvo (`debug` ou `release`).
 
-### Flags de Compilação
-
-```makefile
-CXXFLAGS = -Wall -Wextra -std=c++11 -O2
-```
-* `-Wall -Wextra`: Habilita a maioria dos warnings importantes.
-* `-std=c++11`: Garante a conformidade com o padrão C++11.
-* `-O2`: Aplica otimizações de performance.
-* `-g`: Adiciona símbolos de depuração (usado no modo `debug`).
-
 ---
 
 
@@ -254,25 +217,6 @@ CXXFLAGS = -Wall -Wextra -std=c++11 -O2
 **Dependências**:
 * O projeto depende apenas da **biblioteca padrão do C++11 ou superior**, não necessitando de bibliotecas externas para compilação ou execução.
 
----
-
-## CONCLUSÃO
-
-Este projeto demonstra a implementação completa de um Jogo da Velha com uma IA imbatível, utilizando práticas modernas de desenvolvimento em C++. A arquitetura modular facilita a manutenção e futuras extensões, enquanto o algoritmo Minimax serve como um excelente caso de estudo para algoritmos de busca adversária.
-
-### Aprendizados
-
-1.  **Algoritmos de IA**: Implementação prática e aprofundada do Minimax.
-2.  **Engenharia de Software**: Aplicação de princípios de OOP para criar um código limpo e organizado.
-3.  **Ferramentas de Build**: Criação de um `Makefile` robusto para automatizar o processo de compilação.
-4.  **Interface de Usuário (Console)**: Desenvolvimento de uma interface de texto interativa e amigável.
-
-### Aplicações Futuras
-
-* Implementação de uma **interface gráfica** com bibliotecas como SDL ou SFML.
-* Extensão para outros jogos de tabuleiro, como Jogo da Dama ou Quatro em Linha.
-* Adição de um modo **multiplayer em rede**.
-* Criação de **diferentes níveis de dificuldade**, limitando a profundidade da busca do Minimax.
 
 ---
 
