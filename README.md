@@ -34,7 +34,6 @@ make help       # Ver todas as opções
 crossbots/
 ├── src/           # Código fonte (.cpp)
 ├── include/       # Cabeçalhos (.h)
-├── bin/           # Executáveis
 ├── obj/           # Arquivos objeto
 ├── doc/           # Documentação
 └── Makefile       # Build automatizado
